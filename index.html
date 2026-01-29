@@ -24,7 +24,7 @@
   <script>
     (function () {
       var root = document.getElementById('root');
-      var fallback = { "projects": [ { "name": "Proyecto A", "previews": [ { "name": "Pantalla 1", "path": "mocks/proyecto-a/pantalla1.html" }, { "name": "Pantalla 2", "path": "mocks/proyecto-a/pantalla2.html" } ] }, { "name": "Proyecto B", "previews": [ { "name": "Home", "path": "mocks/proyecto-b/home.html" } ] }, { "previews": [ { "name": "Inicio", "path": "mocks/Terque rediseño landing wordpress/index.html" }, { "name": "FAQ", "path": "mocks/Terque rediseño landing wordpress/faq.html" }, { "name": "Quiénes somos", "path": "mocks/Terque rediseño landing wordpress/quienes_somos.html" } ] } ] };
+      var fallback = { "projects": [ { "name": "Proyecto A", "previews": [ { "name": "Pantalla 1", "path": "mocks/proyecto-a/pantalla1.html" }, { "name": "Pantalla 2", "path": "mocks/proyecto-a/pantalla2.html" } ] }, { "name": "Proyecto B", "previews": [ { "name": "Home", "path": "mocks/proyecto-b/home.html" } ] }, { "previews": [ { "name": "Inicio", "path": "mocks/terque-rediseno-landing-wordpress/index.html" }, { "name": "FAQ", "path": "mocks/terque-rediseno-landing-wordpress/faq.html" }, { "name": "Quiénes somos", "path": "mocks/terque-rediseno-landing-wordpress/quienes_somos.html" } ] } ] };
       function projectName(project) {
         if (project.name) return project.name;
         var first = (project.previews && project.previews[0]) ? project.previews[0].path : '';

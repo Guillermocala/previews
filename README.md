@@ -35,6 +35,8 @@ Repositorio para previsualizar mocks HTML de varios proyectos desde un único me
 - `name`: texto que se muestra en el menú.
 - `path`: ruta relativa al HTML del mock desde la raíz del repo.
 
+**GitHub Pages:** Usa nombres de carpeta sin espacios ni caracteres especiales (ñ, tildes) en las rutas (p. ej. `terque-rediseno-landing-wordpress`) para evitar 404. El `name` puede seguir mostrando el texto con tildes.
+
 ## Publicar en GitHub Pages
 
 1. Crea un repositorio en GitHub y sube este proyecto (o conéctalo si ya existe):
