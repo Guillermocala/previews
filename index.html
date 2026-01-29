@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsualizaciones - Menú principal</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 1.5rem; background: #f5f5f5; }
+    h1 { margin-top: 0; color: #333; }
+    .project { margin-bottom: 2rem; }
+    .project h2 { font-size: 1.1rem; color: #555; margin-bottom: 0.75rem; border-bottom: 1px solid #ddd; padding-bottom: 0.25rem; }
+    .preview-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .preview-link { display: inline-block; padding: 0.6rem 1rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; color: #1976d2; text-decoration: none; transition: background .15s, border-color .15s; }
+    .preview-link:hover { background: #e3f2fd; border-color: #1976d2; }
+    .error { color: #c62828; }
+    .loading { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Previsualizaciones</h1>
+  <div id="root" class="loading">Cargando previsualizaciones…</div>
+
+  <script>
+    (function () {
+      var root = document.getElementById('root');
+      fetch('previews.json')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('No se pudo cargar previews.json')); })
+        .then(function (data) {
+          root.className = '';
+          root.innerHTML = '';
+          if (!data.projects || !data.projects.length) {
+            root.innerHTML = '<p class="error">No hay proyectos en previews.json.</p>';
+            return;
+          }
+          data.projects.forEach(function (project) {
+            var section = document.createElement('div');
+            section.className = 'project';
+            var title = document.createElement('h2');
+            title.textContent = project.name;
+            section.appendChild(title);
+            var list = document.createElement('div');
+            list.className = 'preview-list';
+            (project.previews || []).forEach(function (preview) {
+              var a = document.createElement('a');
+              a.className = 'preview-link';
+              a.href = 'viewer.html?src=' + encodeURIComponent(preview.path);
+              a.textContent = preview.name;
+              list.appendChild(a);
+            });
+            section.appendChild(list);
+            root.appendChild(section);
+          });
+        })
+        .catch(function (err) {
+          root.className = 'error';
+          root.innerHTML = '<p>Error: ' + (err.message || 'cargando lista') + '.</p>';
+        });
+    })();
+  </script>
+</body>
+</html>

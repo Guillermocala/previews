@@ -1,0 +1,17 @@
+{
+  "projects": [
+    {
+      "name": "Proyecto A",
+      "previews": [
+        { "name": "Pantalla 1", "path": "mocks/proyecto-a/pantalla1.html" },
+        { "name": "Pantalla 2", "path": "mocks/proyecto-a/pantalla2.html" }
+      ]
+    },
+    {
+      "name": "Proyecto B",
+      "previews": [
+        { "name": "Home", "path": "mocks/proyecto-b/home.html" }
+      ]
+    }
+  ]
+}

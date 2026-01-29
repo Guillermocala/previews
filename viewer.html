@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsualización</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; font-family: system-ui, sans-serif; }
+    .bar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: 44px; background: #333; color: #fff; display: flex; align-items: center; padding: 0 1rem; }
+    .bar a { color: #fff; text-decoration: none; padding: 0.4rem 0.8rem; background: #555; border-radius: 4px; }
+    .bar a:hover { background: #666; }
+    .frame-wrap { flex: 1; margin-top: 44px; min-height: 0; }
+    .frame-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .no-src { padding: 2rem; color: #c62828; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <a href="index.html">Volver al menú</a>
+  </div>
+  <div class="frame-wrap" id="frame-wrap">
+    <iframe id="mock-frame" title="Mock"></iframe>
+  </div>
+  <div id="no-src" class="no-src" style="display: none; margin-top: 44px; padding: 2rem;">No se indicó previsualización (parámetro <code>src</code>). <a href="index.html">Volver al menú</a>.</div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var src = params.get('src');
+      var frameWrap = document.getElementById('frame-wrap');
+      var frame = document.getElementById('mock-frame');
+      var noSrc = document.getElementById('no-src');
+
+      if (!src || src.trim() === '') {
+        frameWrap.style.display = 'none';
+        noSrc.style.display = 'block';
+        return;
+      }
+      src = src.trim();
+      if (src.indexOf('http://') === 0 || src.indexOf('https://') === 0 || src.indexOf('//') === 0) {
+        frameWrap.style.display = 'none';
+        noSrc.innerHTML = 'Solo se permiten rutas relativas. <a href="index.html">Volver al menú</a>.';
+        noSrc.style.display = 'block';
+        return;
+      }
+      frame.src = src;
+    })();
+  </script>
+</body>
+</html>
