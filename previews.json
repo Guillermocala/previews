@@ -16,7 +16,7 @@
     {
       "name": "Terque rediseño landing wordpress",
       "previews": [
-        { "name": "Inicio", "path": "mocks/terque-rediseno-landing-wordpress/index.html" },
+        { "name": "Inicio", "path": "mocks/terque-rediseno-landing-wordpress/home.html" },
         { "name": "FAQ", "path": "mocks/terque-rediseno-landing-wordpress/faq.html" },
         { "name": "Quiénes somos", "path": "mocks/terque-rediseno-landing-wordpress/quienes_somos.html" }
       ]
