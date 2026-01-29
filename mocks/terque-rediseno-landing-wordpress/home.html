@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terque - Cuidado de mascotas con amor y confianza</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: "#F47F32",
+              "federal-blue": "#05004E",
+              "background-light": "#F9FAFB",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+              sans: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: "Roboto", sans-serif }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1 }
+        .light body { background-color: #F9FAFB; color: #1E293B; }
+        .light .bg-card { background-color: #FFFFFF; }
+        .light .header-bg { background-color: rgba(255, 255, 255, 0.9); }
+        .light .text-hero-desc { color: #334155; }
+        .light .hero-section { background-color: #F8FAFC; }
+        .light .search-bar-container { background-color: #FFFFFF; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+        .light .search-field-divider { border-color: #E2E8F0; }
+        .dark body { background-color: #020617; color: #F1F5F9; }
+        .dark .bg-card { background-color: #0F172A; }
+        .dark .header-bg { background-color: rgba(2, 6, 23, 0.9); border-color: #1E293B; }
+        .dark .text-federal-blue { color: #F1F5F9; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #94A3B8; }
+        .dark .bg-white { background-color: #0F172A; }
+        .dark .bg-slate-50 { background-color: #020617; }
+        .dark .border-slate-100, .dark .border-slate-200 { border-color: #1E293B; }
+        .dark .hero-section { background-color: #020617; }
+        .dark .text-hero-desc { color: #CBD5E1; }
+        .dark .bg-background-light { background-color: #1E293B; }
+        .dark .search-bar-container { background-color: #0F172A; border: 1px solid #1E293B; }
+        .dark .search-field-divider { border-color: #1E293B; }
+        .light .app-section-bg { background-color: #F9FAFB; }
+        .dark .app-section-bg { background-color: #0F172A; }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+<header class="fixed w-full top-0 z-50 header-bg backdrop-blur-md border-b border-slate-100 transition-colors">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center">
+<a href="principal.html"><img alt="Terque Logo" class="h-10 w-auto dark:brightness-0 dark:invert transition-all" src="images/logo-terque.png"/></a>
+</div>
+<nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-federal-blue">
+<a class="hover:text-primary transition-colors" href="principal.html">Encontrar Cuidadores</a>
+<a class="hover:text-primary transition-colors" href="principal.html#como-funciona">Cómo Funciona</a>
+<a class="hover:text-primary transition-colors" href="#">Conviértete en Cuidador</a>
+<a class="hover:text-primary transition-colors" href="quienes_somos.html">¿Quiénes somos?</a>
+<a class="hover:text-primary transition-colors" href="faq.html">FAQ</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center text-federal-blue" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<a class="hidden sm:block text-sm font-bold text-federal-blue hover:text-primary transition-colors" href="#">Iniciar Sesión</a>
+<a class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform active:scale-95" href="#">Regístrate</a>
+</div>
+</div>
+</header>
+<main>
+<section class="relative pt-48 pb-24 overflow-hidden hero-section transition-colors">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-federal-blue/5 rounded-full blur-3xl"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-8 text-center lg:text-left">
+<h1 class="text-5xl md:text-6xl font-black text-federal-blue leading-tight">
+                        Cuidado de mascotas con <span class="text-primary">amor</span> y <span class="text-primary">confianza</span>
+</h1>
+<p class="text-lg text-hero-desc max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        Conectamos a dueños de mascotas con cuidadores apasionados y verificados. Encuentra el hogar perfecto para tu mejor amigo mientras estás fuera.
+                    </p>
+<div class="search-bar-container p-2 rounded-2xl max-w-xl mx-auto lg:mx-0 relative z-20">
+<div class="flex flex-col md:flex-row items-center">
+<div class="flex-1 w-full p-3 flex items-center group">
+<span class="material-symbols-outlined text-primary mr-3">location_on</span>
+<div class="text-left w-full">
+<label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-tight">Ubicación</label>
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold text-federal-blue placeholder-slate-400 focus:ring-0" placeholder="¿Ingresa tu ubicación?" type="text"/>
+</div>
+</div>
+<div class="hidden md:block w-px h-8 search-field-divider"></div>
+<div class="flex-1 w-full p-3 flex items-center group">
+<span class="material-symbols-outlined text-primary mr-3">calendar_today</span>
+<div class="text-left w-full">
+<label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-tight">Entrada</label>
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold text-federal-blue focus:ring-0 cursor-pointer" type="date"/>
+</div>
+</div>
+<div class="hidden md:block w-px h-8 search-field-divider"></div>
+<div class="flex-1 w-full p-3 flex items-center group">
+<span class="material-symbols-outlined text-primary mr-3">calendar_today</span>
+<div class="text-left w-full">
+<label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-tight">Salida</label>
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold text-federal-blue focus:ring-0 cursor-pointer" type="date"/>
+</div>
+</div>
+<div class="p-1 w-full md:w-auto">
+<button class="w-full md:w-12 md:h-12 bg-primary text-white p-3 rounded-xl font-bold shadow-lg shadow-orange-500/30 hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">search</span>
+<span class="md:hidden text-sm uppercase">Buscar ahora</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center lg:justify-start space-x-4 pt-4">
+<div class="flex -space-x-3">
+<img alt="User 1" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAifOdo3gSeDBoF7rC0z-7OYIlcrJ9O8tYMd7twS4U09TbRRxPvMEQfR4oQB0ayXG0bEajJcoAyCU2RvLcURGDjv1ir7jKusmPuSlcfF4dfvYBkA8ahylGbkXcd64gtM7rL-QP93n1k8T6I54dlhXg8O2aTJ80gUXa1GjamOVj7RMGH8oWMPTZSjxIhIEY3bqVqoiW3t7woBztDR0M7hV_iv3O-nk4WzHkTF0H57IfdteOe_p37Jfugzg3ZM_rfb0JR23HY0DetqB8"/>
+<img alt="User 2" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Xb-iQm837-MRvLe-Y5AiUWpmQvscK7X1aOpx2abMu2I-vrqMrkGAAvIj5RrzdmTnSBZxvD9ytAfwD3_ZapP6aGiw07ocrQChiG9zMULmCaRZkNZ2cs-HJsoVzLLZlnxIpXRf7HL6fJw-YmEau9Ej7OWrZEL09HQ4WVhaAAmgXKMXwJpdhmMeVzpWuAtDxvPimv0aaoGce-IxLssUKsXdwe8J7X7gXXV8GdHTOoGOBFdb4IIbswoABMTCGiHzxcNlyQ5ygmgx76M"/>
+<img alt="User 3" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD60ABkHpS1D-3TW41KBFRZrgE47MblsmyYFG8ELU4iZmeZRJKiGJi5PAf3Ck8U2J-D_P4r3uXSbAA3movyPVo1dsQBkON8Ey65CHVwuJgRuV5qO8_w54e3fu-H7iOJsaiVgioktg07Bq2KItgR8qHMjcCyPIVQRaaT4V3Xk01pZrdl5ZoosF6nCtWgk_FoS-JIvk6ezQOjFqYRkRRsOKMkCQRx-738A2s5HgVIpx4gUXd7PwpqF7rMiyEgPtrPYelMyaRCaxEYYMU"/>
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-federal-blue">+500</div>
+</div>
+<div class="text-sm text-slate-500 dark:text-slate-400">
+<span class="font-bold text-federal-blue">4.9/5</span> de valoración basada en testimonios reales
+                        </div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -right-10 w-72 h-72 bg-federal-blue/10 rounded-full blur-3xl"></div>
+<img alt="Cuidado de mascotas" class="relative rounded-[40px] shadow-2xl z-10 w-full object-cover aspect-[4/3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfINlfeGH8MRrpBsNbx9itz--0mCIiUrp_f6nPK00Ui94fw6X8OGpSvWWkdh2uERSIpRjJfHBeIxupND_OqorXY86fU9pyZzhrm93SPIwYEc6YR3Dkxu3XeIl080yZVy0gW1TOKpuvlmocSfQcDbiyRv389848-OhMrWAR42JKj9V4m9GzfpBQEht-FPNSVv6TipM_tv04JqGYe-obn5PVo7JgayHKvpzG7mIMkjFMqQxeF175rLv_7begH1d9O_KputlZZH5ny2s"/>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-xl z-20 flex items-center gap-4 border border-slate-100 dark:border-slate-700">
+<div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Cuidadores</p>
+<p class="font-bold text-federal-blue">100% Verificados</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white transition-colors">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="text-left">
+<h2 class="text-3xl md:text-4xl font-black text-federal-blue mb-4">Cuidadores destacados</h2>
+<p class="text-slate-600 dark:text-slate-400">Los perfiles mejor valorados cerca de ti.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all" href="#">
+                        Ver todos los cuidadores <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Caretaker 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAifOdo3gSeDBoF7rC0z-7OYIlcrJ9O8tYMd7twS4U09TbRRxPvMEQfR4oQB0ayXG0bEajJcoAyCU2RvLcURGDjv1ir7jKusmPuSlcfF4dfvYBkA8ahylGbkXcd64gtM7rL-QP93n1k8T6I54dlhXg8O2aTJ80gUXa1GjamOVj7RMGH8oWMPTZSjxIhIEY3bqVqoiW3t7woBztDR0M7hV_iv3O-nk4WzHkTF0H57IfdteOe_p37Jfugzg3ZM_rfb0JR23HY0DetqB8"/>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-federal-blue">
+                                $25<span class="text-slate-500">/noche</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-federal-blue text-lg">María G.</h3>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined filled text-sm">star</span>
+<span class="text-sm font-bold ml-1">4.9</span>
+</div>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-xs">location_on</span> Madrid, Chamberí
+                            </p>
+<button class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Reservar</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Caretaker 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Xb-iQm837-MRvLe-Y5AiUWpmQvscK7X1aOpx2abMu2I-vrqMrkGAAvIj5RrzdmTnSBZxvD9ytAfwD3_ZapP6aGiw07ocrQChiG9zMULmCaRZkNZ2cs-HJsoVzLLZlnxIpXRf7HL6fJw-YmEau9Ej7OWrZEL09HQ4WVhaAAmgXKMXwJpdhmMeVzpWuAtDxvPimv0aaoGce-IxLssUKsXdwe8J7X7gXXV8GdHTOoGOBFdb4IIbswoABMTCGiHzxcNlyQ5ygmgx76M"/>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-federal-blue">
+                                $22<span class="text-slate-500">/noche</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-federal-blue text-lg">Carlos R.</h3>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined filled text-sm">star</span>
+<span class="text-sm font-bold ml-1">5.0</span>
+</div>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-xs">location_on</span> Barcelona, Eixample
+                            </p>
+<button class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Reservar</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Caretaker 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD60ABkHpS1D-3TW41KBFRZrgE47MblsmyYFG8ELU4iZmeZRJKiGJi5PAf3Ck8U2J-D_P4r3uXSbAA3movyPVo1dsQBkON8Ey65CHVwuJgRuV5qO8_w54e3fu-H7iOJsaiVgioktg07Bq2KItgR8qHMjcCyPIVQRaaT4V3Xk01pZrdl5ZoosF6nCtWgk_FoS-JIvk6ezQOjFqYRkRRsOKMkCQRx-738A2s5HgVIpx4gUXd7PwpqF7rMiyEgPtrPYelMyaRCaxEYYMU"/>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-federal-blue">
+                                $30<span class="text-slate-500">/noche</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-federal-blue text-lg">Elena M.</h3>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined filled text-sm">star</span>
+<span class="text-sm font-bold ml-1">4.8</span>
+</div>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-xs">location_on</span> Valencia, El Carmen
+                            </p>
+<button class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Reservar</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Caretaker 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfINlfeGH8MRrpBsNbx9itz--0mCIiUrp_f6nPK00Ui94fw6X8OGpSvWWkdh2uERSIpRjJfHBeIxupND_OqorXY86fU9pyZzhrm93SPIwYEc6YR3Dkxu3XeIl080yZVy0gW1TOKpuvlmocSfQcDbiyRv389848-OhMrWAR42JKj9V4m9GzfpBQEht-FPNSVv6TipM_tv04JqGYe-obn5PVo7JgayHKvpzG7mIMkjFMqQxeF175rLv_7begH1d9O_KputlZZH5ny2s"/>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-federal-blue">
+                                $20<span class="text-slate-500">/noche</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-federal-blue text-lg">Javier L.</h3>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined filled text-sm">star</span>
+<span class="text-sm font-bold ml-1">4.7</span>
+</div>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-xs">location_on</span> Sevilla, Triana
+                            </p>
+<button class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Reservar</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50 transition-colors" id="como-funciona">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black text-federal-blue mb-4">¿Cómo funciona Terque?</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Tu mascota merece lo mejor, y en solo tres pasos puedes asegurarle el cuidado más cariñoso.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-dashed bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent -translate-y-1/2 -z-10"></div>
+<div class="text-center space-y-6 group">
+<div class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full shadow-xl flex items-center justify-center mx-auto border-4 border-slate-50 dark:border-slate-900 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">search_check</span>
+</div>
+<div class="space-y-3">
+<h3 class="text-xl font-bold text-federal-blue">1. Busca a tu cuidador ideal</h3>
+<p class="text-slate-600 dark:text-slate-400 font-normal leading-relaxed">Usa nuestros filtros de ubicación y fechas para encontrar a la persona perfecta cerca de ti.</p>
+</div>
+</div>
+<div class="text-center space-y-6 group">
+<div class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full shadow-xl flex items-center justify-center mx-auto border-4 border-slate-50 dark:border-slate-900 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">payments</span>
+</div>
+<div class="space-y-3">
+<h3 class="text-xl font-bold text-federal-blue">2. Reserva y paga de forma segura</h3>
+<p class="text-slate-600 dark:text-slate-400 font-normal leading-relaxed">Realiza tu reserva a través de nuestra plataforma protegida con total garantía de seguridad.</p>
+</div>
+</div>
+<div class="text-center space-y-6 group">
+<div class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full shadow-xl flex items-center justify-center mx-auto border-4 border-slate-50 dark:border-slate-900 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">sentiment_very_satisfied</span>
+</div>
+<div class="space-y-3">
+<h3 class="text-xl font-bold text-federal-blue">3. ¡Relájate y disfruta!</h3>
+<p class="text-slate-600 dark:text-slate-400 font-normal leading-relaxed">Recibe actualizaciones diarias, fotos y vídeos de tu mascota mientras tú descansas.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light transition-colors">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black text-federal-blue mb-4">Diseñado para amantes de los animales</h2>
+<p class="text-slate-600 dark:text-slate-400">Ya seas dueño de una mascota o un apasionado del cuidado, Terque es para ti.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="group bg-white dark:bg-slate-800 p-10 rounded-[40px] border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+<div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<h3 class="text-2xl font-bold text-federal-blue mb-4">Para Dueños de Mascotas</h3>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Cuidadores verificados en tu zona.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Actualizaciones diarias con fotos y vídeos.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Seguro de protección veterinaria incluido.</p>
+</li>
+</ul>
+<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all gap-2" href="#">
+                            Encuentra un cuidador <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-10 rounded-[40px] border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:shadow-federal-blue/10 transition-all duration-500">
+<div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-federal-blue mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+</div>
+<h3 class="text-2xl font-bold text-federal-blue mb-4">Para Cuidadores</h3>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-federal-blue text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Elige tus propios horarios y tarifas.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-federal-blue text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Soporte 24/7 y comunidad de expertos.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-federal-blue text-xl">check_circle</span>
+<p class="text-slate-600 dark:text-slate-400">Gana dinero haciendo lo que más te gusta.</p>
+</li>
+</ul>
+<a class="inline-flex items-center text-federal-blue font-bold hover:gap-3 transition-all gap-2" href="#">
+                            Empieza a cuidar <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white transition-colors overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black text-federal-blue mb-4">Experiencias reales</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Lo que dicen los dueños de mascotas que ya confían en Terque.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-[32px] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-8">format_quote</span>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Mascota" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL95mtW7CuohS44yhVxOX9IkKEqT0lcuGAdiDzH1goDxCYWDtGB7C7aTCwfm2rDM7GZE2AMe_IU6lshebviYpDqVvqZjQNREWv0AG11f7e-vMkYoyuFyK2gOHpyW80Xu_mvk5W2CIiKkVCWxuJgnOcD4Rx7Q5cCWeQTIgWE4_aCrO8J8-AoZ-1sFke_2EXZLB-v2_DPfG7U_xzRHw4_v66ToCuNgmD18hXyE3ErBFLKPKS0md__ly70Z0DW6n-LHXMIzH-TxXmpso"/>
+<div>
+<p class="font-bold text-federal-blue">Ana &amp; Luna</p>
+<p class="text-xs text-slate-500 font-medium italic">Golden Retriever</p>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                            "Terque me dio la tranquilidad que necesitaba. María cuidó de Luna como si fuera suya, y las fotos diarias me hacían sentir que estaba ahí."
+                        </p>
+</div>
+<div class="p-8 rounded-[32px] bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-xl shadow-slate-200/50 dark:shadow-none scale-105 relative z-10">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-8">format_quote</span>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Mascota" class="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAifOdo3gSeDBoF7rC0z-7OYIlcrJ9O8tYMd7twS4U09TbRRxPvMEQfR4oQB0ayXG0bEajJcoAyCU2RvLcURGDjv1ir7jKusmPuSlcfF4dfvYBkA8ahylGbkXcd64gtM7rL-QP93n1k8T6I54dlhXg8O2aTJ80gUXa1GjamOVj7RMGH8oWMPTZSjxIhIEY3bqVqoiW3t7woBztDR0M7hV_iv3O-nk4WzHkTF0H57IfdteOe_p37Jfugzg3ZM_rfb0JR23HY0DetqB8"/>
+<div>
+<p class="font-bold text-federal-blue">Roberto &amp; Toby</p>
+<p class="text-xs text-slate-500 font-medium italic">Bulldog Francés</p>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                            "Encontrar a alguien de confianza era mi mayor miedo. En Terque encontré a Carlos y ahora Toby se pone feliz cada vez que vamos a su casa."
+                        </p>
+</div>
+<div class="p-8 rounded-[32px] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-8">format_quote</span>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Mascota" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Xb-iQm837-MRvLe-Y5AiUWpmQvscK7X1aOpx2abMu2I-vrqMrkGAAvIj5RrzdmTnSBZxvD9ytAfwD3_ZapP6aGiw07ocrQChiG9zMULmCaRZkNZ2cs-HJsoVzLLZlnxIpXRf7HL6fJw-YmEau9Ej7OWrZEL09HQ4WVhaAAmgXKMXwJpdhmMeVzpWuAtDxvPimv0aaoGce-IxLssUKsXdwe8J7X7gXXV8GdHTOoGOBFdb4IIbswoABMTCGiHzxcNlyQ5ygmgx76M"/>
+<div>
+<p class="font-bold text-federal-blue">Lucía &amp; Miau</p>
+<p class="text-xs text-slate-500 font-medium italic">Gato Común</p>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                            "El servicio de visitas a domicilio es excelente. Elena vino a casa a cuidar de mi gato y todo fue perfecto. Repetiré sin duda."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 app-section-bg transition-colors overflow-hidden relative">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-federal-blue/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8 text-center lg:text-left">
+<h2 class="text-4xl md:text-5xl font-black text-federal-blue leading-tight">Lleva a Terque contigo</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto lg:mx-0">
+                        Gestiona reservas, recibe actualizaciones en tiempo real y chatea con cuidadores desde cualquier lugar. Disponible gratis en tu tienda favorita.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+<a class="transition-transform hover:scale-105 active:scale-95 shadow-md rounded-xl bg-black overflow-hidden" href="#">
+<img alt="Google Play" class="h-14" src="images/googleplay.png"/>
+</a>
+<a class="transition-transform hover:scale-105 active:scale-95 shadow-md rounded-xl bg-black overflow-hidden" href="#">
+<img alt="App Store" class="h-14" src="images/appstore.png"/>
+</a>
+</div>
+<div class="flex items-center justify-center lg:justify-start gap-8 pt-4">
+<div class="text-center">
+<p class="text-2xl font-black text-primary">50k+</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">Descargas</p>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-slate-700"></div>
+<div class="text-center">
+<p class="text-2xl font-black text-primary">4.8</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">Rating</p>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center pb-12 lg:pb-0">
+<div class="relative z-10 w-64 md:w-72 aspect-[9/18.5] bg-slate-900 rounded-[3rem] border-[8px] border-federal-blue/10 shadow-2xl overflow-hidden translate-y-10 -rotate-6">
+<img alt="App UI 1" class="w-full h-full object-cover" src="images/app2.webp"/>
+</div>
+<div class="absolute z-20 w-64 md:w-72 aspect-[9/18.5] bg-slate-900 rounded-[3rem] border-[8px] border-federal-blue/20 shadow-2xl overflow-hidden translate-x-12 md:translate-x-20 rotate-3">
+<img alt="App UI 2" class="w-full h-full object-cover" src="images/app1.webp"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-federal-blue text-white py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<img alt="Terque Logo Inverse" class="h-10 w-auto brightness-0 invert mb-6" src="images/logo-terque.png"/>
+<p class="text-blue-100/70 text-sm leading-relaxed max-w-xs">
+                        Conectando corazones y huellas. La plataforma líder en cuidado de mascotas en España y Latinoamérica.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Servicios</h5>
+<ul class="space-y-4 text-sm text-blue-100/70">
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="w-1 h-1 bg-primary rounded-full"></span> Alojamiento nocturno</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="w-1 h-1 bg-primary rounded-full"></span> Cuidado de día</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="w-1 h-1 bg-primary rounded-full"></span> Paseos de perros</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="w-1 h-1 bg-primary rounded-full"></span> Visitas a domicilio</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Compañía</h5>
+<ul class="space-y-4 text-sm text-blue-100/70">
+<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seguridad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Síguenos</h5>
+<div class="flex space-x-4">
+<a aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors border border-white/5" href="#">
+<span class="material-symbols-outlined text-xl text-white">public</span>
+</a>
+<a aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors border border-white/5" href="#">
+<span class="material-symbols-outlined text-xl text-white">camera_alt</span>
+</a>
+<a aria-label="Share" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors border border-white/5" href="#">
+<span class="material-symbols-outlined text-xl text-white">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-100/50">
+<p>© 2024 Terque. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Términos</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

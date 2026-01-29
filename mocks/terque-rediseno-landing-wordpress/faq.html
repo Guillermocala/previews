@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terque - Centro de Ayuda FAQ</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: "#F47F32",
+              "federal-blue": "#05004E",
+              "background-light": "#F9FAFB",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+              sans: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: "Roboto", sans-serif }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+        .light body { background-color: #F9FAFB; color: #1E293B; }
+        .light .bg-card { background-color: #FFFFFF; }
+        .light .header-bg { background-color: rgba(255, 255, 255, 0.9); }
+        .light .faq-question-text { color: #05004E; }
+        .light .faq-category-title { color: #F47F32; }
+        .dark body { background-color: #020617; color: #F1F5F9; }
+        .dark .bg-card { background-color: #0F172A; }
+        .dark .header-bg { background-color: rgba(2, 6, 23, 0.9); border-color: #1E293B; }
+        .dark .faq-question-text { color: #F1F5F9; }
+        .dark .faq-category-title { color: #F47F32; }
+        .dark .bg-white { background-color: #0F172A; }
+        .dark .border-slate-100, .dark .border-slate-200 { border-color: #1E293B; }.accordion-item:hover .accordion-content { max-height: 500px; padding-bottom: 1.5rem; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: all 0.3s ease-out; }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+<header class="fixed w-full top-0 z-50 header-bg backdrop-blur-md border-b border-slate-100 transition-colors">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center">
+<a href="principal.html"><img alt="Terque Logo" class="h-10 w-auto dark:brightness-0 dark:invert transition-all" src="images/logo-terque.png"/></a>
+</div>
+<nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-federal-blue">
+<a class="hover:text-primary transition-colors" href="principal.html">Encontrar Cuidadores</a>
+<a class="hover:text-primary transition-colors" href="principal.html#como-funciona">Cómo Funciona</a>
+<a class="hover:text-primary transition-colors" href="#">Conviértete en Cuidador</a>
+<a class="hover:text-primary transition-colors" href="quienes_somos.html">¿Quiénes somos?</a>
+<a class="text-primary transition-colors border-b-2 border-primary" href="faq.html">FAQ</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center text-federal-blue" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<a class="hidden sm:block text-sm font-bold text-federal-blue hover:text-primary transition-colors" href="#">Iniciar Sesión</a>
+<a class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform active:scale-95" href="#">Regístrate</a>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 min-h-screen">
+<div class="max-w-4xl mx-auto px-6">
+<div class="text-center mb-16 space-y-6">
+<div class="inline-flex items-center justify-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-2xl mb-2">
+<span class="material-symbols-outlined text-primary text-3xl">pets</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-black text-federal-blue dark:text-white">Centro de Ayuda Terque</h1>
+<p class="text-slate-600 dark:text-slate-400 max-w-lg mx-auto font-medium">
+                    Estamos aquí para ayudarte a ti y a tu mascota. Encuentra respuestas rápidas a tus dudas frecuentes.
+                </p>
+<div class="relative max-w-2xl mx-auto mt-8">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-medium transition-all" placeholder="Busca tu duda (ej: requisitos para cuidadores, pagos...)" type="text"/>
+</div>
+</div>
+<div class="space-y-16">
+<section>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">person</span>
+<h2 class="text-3xl font-bold faq-category-title uppercase tracking-wide">Usuarios</h2>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cómo puedo determinar si un cuidador es confiable?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Qué debo hacer si mi mascota tiene algún problema durante su alojamiento?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Qué servicios puedo reservar con los cuidadores y qué opciones pueden incluir?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Es posible tener la información de contacto de mi cuidador?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Que me cubre la póliza de Sura como usuario de Terque?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">volunteer_activism</span>
+<h2 class="text-3xl font-bold faq-category-title uppercase tracking-wide">Cuidadores</h2>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cómo puedo hacer que mi alojamiento sea más atractivo y qué tipo de fotos debo subir?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cuáles son los requisitos necesarios para convertirse en cuidador?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Qué debo hacer si algo le sucede a una mascota bajo mi cuidado?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cómo se realiza el pago por el servicio que he prestado?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cómo es el proceso del plan premium?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cómo cambiar mi plan de verificación?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Cuáles son los requisitos para la póliza y el plan premium?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+<div class="group">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-base font-bold faq-question-text">¿Qué beneficios tengo con la póliza de Sura como cuidador de terque?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-24 text-center">
+<div class="inline-flex items-center gap-4 px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-500">
+<span class="material-symbols-outlined text-primary">contact_support</span>
+                    ¿No encontraste lo que buscabas? <a class="text-primary font-bold hover:underline" href="#">Habla con nosotros</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-federal-blue text-white py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<img alt="Terque Logo Inverse" class="h-10 w-auto brightness-0 invert mb-6" src="images/logo-terque.png"/>
+<p class="text-blue-100/70 text-sm leading-relaxed">
+                        Conectando corazones y huellas. La plataforma líder en cuidado de mascotas en España y Latinoamérica.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6">Servicios</h5>
+<ul class="space-y-4 text-sm text-blue-100/70">
+<li><a class="hover:text-primary transition-colors" href="#">Alojamiento nocturno</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cuidado de día</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Paseos de perros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Visitas a domicilio</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Compañía</h5>
+<ul class="space-y-4 text-sm text-blue-100/70">
+<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seguridad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Síguenos</h5>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">camera_alt</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-100/50">
+<p>© 2024 Terque. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Términos</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
