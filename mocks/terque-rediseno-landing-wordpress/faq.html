@@ -43,8 +43,10 @@
         .dark .faq-question-text { color: #F1F5F9; }
         .dark .faq-category-title { color: #F47F32; }
         .dark .bg-white { background-color: #0F172A; }
-        .dark .border-slate-100, .dark .border-slate-200 { border-color: #1E293B; }.accordion-item:hover .accordion-content { max-height: 500px; padding-bottom: 1.5rem; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: all 0.3s ease-out; }
+        .dark .border-slate-100, .dark .border-slate-200 { border-color: #1E293B; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-item.is-open .accordion-content { max-height: 800px; padding-bottom: 1rem; }
+        .accordion-item.is-open .material-symbols-outlined { transform: rotate(180deg); }
     </style>
 </head>
 <body class="transition-colors duration-300">
@@ -95,35 +97,58 @@
 </div>
 <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
 <div class="divide-y divide-slate-100 dark:divide-slate-700">
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cómo puedo determinar si un cuidador es confiable?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-usuarios-1" id="faq-usuarios-1-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cómo puedo determinar si un cuidador es confiable?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-usuarios-1" role="region" aria-labelledby="faq-usuarios-1-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">Puedes estar seguro de que tu mascota está en buenas manos con Terque. Desde el plan Basic, implementamos un riguroso proceso de verificación para nuestros cuidadores, el cual incluye la revisión de su identidad, la confirmación de su ubicación, la verificación de antecedentes judiciales, la revisión de medidas correctivas y la consulta de procesos legales.</p>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Qué debo hacer si mi mascota tiene algún problema durante su alojamiento?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Qué servicios puedo reservar con los cuidadores y qué opciones pueden incluir?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-usuarios-2" id="faq-usuarios-2-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Qué debo hacer si mi mascota tiene algún problema durante su alojamiento?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-usuarios-2" role="region" aria-labelledby="faq-usuarios-2-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">En caso de alguna anomalía con el cuidador o con tu mascota a raíz de la prestación del servicio contratado, deberás reportarlo de inmediato a través de Terque®. Nuestra línea de soporte es: +57 310 2982363</p>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Es posible tener la información de contacto de mi cuidador?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Que me cubre la póliza de Sura como usuario de Terque?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-usuarios-3" id="faq-usuarios-3-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Qué servicios puedo reservar con los cuidadores y qué opciones pueden incluir?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-usuarios-3" role="region" aria-labelledby="faq-usuarios-3-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">En Terque puedes encontrar servicios de alojamiento con las siguientes comodidades: ducha, cama, juguetes, caminatas, juegos y cepillado. Al momento de escoger el alojamiento, podrás ver públicamente las comodidades que se ofrecen.</p>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-usuarios-4" id="faq-usuarios-4-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Es posible tener la información de contacto de mi cuidador?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-usuarios-4" role="region" aria-labelledby="faq-usuarios-4-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">En el perfil del cuidador, podrás encontrar la información de contacto para que siempre estén en comunicación.</p>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-usuarios-5" id="faq-usuarios-5-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Que me cubre la póliza de Sura como usuario de Terque?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-usuarios-5" role="region" aria-labelledby="faq-usuarios-5-btn">
+<div class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4 space-y-3">
+<p>La póliza de Sura cubre lo siguiente:</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Gastos de defensa en procesos civiles y penales. En procesos civiles hasta el 100% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV. En procesos penales hasta el 10% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV.</li>
+<li>Gastos Médicos de atención inicial de urgencias. Hasta el 4% del límite máximo por cuidador. Sin deducible.</li>
+<li>Bienes bajo cuidado, tenencia y control con las mascotas: Se cubren los perjuicios patrimoniales y extrapatrimoniales por los daños causados a otras personas o a sus bienes por la mascota al servicio del cuidador durante la vigencia del seguro por los que sea responsable el cuidador y/o Spidersecurity. Hasta el 100% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV.</li>
+</ul>
+<p>Es importante tener en cuenta que la póliza solo cubre si el cuidador que eliges está en el plan premium. Por cada servicio, se te cobrará un monto de $2.900 al momento de realizar la reserva. La póliza es válida durante el periodo del servicio contratado.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -135,53 +160,111 @@
 </div>
 <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
 <div class="divide-y divide-slate-100 dark:divide-slate-700">
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cómo puedo hacer que mi alojamiento sea más atractivo y qué tipo de fotos debo subir?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-1" id="faq-cuidadores-1-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cómo puedo hacer que mi alojamiento sea más atractivo y qué tipo de fotos debo subir?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-cuidadores-1" role="region" aria-labelledby="faq-cuidadores-1-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">En la descripción de tu alojamiento no escatimes en detalles de aquellos espacios que puedan ser disfrutados por tus huéspedes (mascotas). En los campos &quot;cuéntanos un poco sobre ti&quot; y &quot;cuéntanos cómo es tu relación con las mascotas&quot; ofrece información acerca de tus aptitudes como cuidador: ¿tienes experiencia previa en el cuidado de peludos? ¿hay alguna raza con la que tengas particular afinidad? ¿En tu familia disfrutan compartir con mascotas? En esos espacios enfatiza aquellas características que te convierten en EL MEJOR CUIDADOR. Las fotos que compartas en el anuncio de tu alojamiento son fundamentales; es indispensable que subas una foto de la fachada de la casa. Por lo demás, te recomendamos subir fotografías de buena calidad (orden, buena definición e iluminación) de las zonas comunes de tu alojamiento y, si tienes a disposición, zonas verdes.</p>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cuáles son los requisitos necesarios para convertirse en cuidador?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Qué debo hacer si algo le sucede a una mascota bajo mi cuidado?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-2" id="faq-cuidadores-2-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cuáles son los requisitos necesarios para convertirse en cuidador?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-cuidadores-2" role="region" aria-labelledby="faq-cuidadores-2-btn">
+<div class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4 space-y-3">
+<p>En primer lugar, los interesados en ser cuidadores deben tener las habilidades psicológicas y emocionales necesarias para asumir el cuidado de un tercero: personas empáticas, responsables y con atención al detalle, que dispongan de un lugar para el alojamiento de mascotas procurando su seguridad y bienestar.</p>
+<p>En cuanto a requisitos legales: Los Servicios prestados por Terque® sólo estarán disponibles para personas que tengan capacidad legal para suscribir una relación comercial entre EL PROPIETARIO DE LA MASCOTA (USUARIO) y EL CUIDADOR por el hospedaje, cuidado o paseo de una mascota. No podrán utilizar los servicios las personas que no tengan esa capacidad, los menores de edad o Usuarios de Terque® que hayan sido suspendidos temporalmente o inhabilitados definitivamente.</p>
+<p>Es obligatorio para todo CUIDADOR completar el formulario de inscripción en todos sus campos con datos válidos. El futuro Usuario deberá completarlo con su información personal de manera exacta, precisa y verdadera (&quot;Datos Personales&quot;) y asume el compromiso de actualizar los Datos Personales conforme resulte necesario.</p>
+<p>Finalmente, deberá contar con una cuenta de ahorros activa para procedimientos de pago de servicios y cumplir con las revisiones correspondientes al plan de verificación elegido en la creación del perfil: Basic, Premium y Gold.</p>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cómo se realiza el pago por el servicio que he prestado?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cómo es el proceso del plan premium?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cómo cambiar mi plan de verificación?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-3" id="faq-cuidadores-3-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Qué debo hacer si algo le sucede a una mascota bajo mi cuidado?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-cuidadores-3" role="region" aria-labelledby="faq-cuidadores-3-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">Es responsabilidad del cuidador entregar la mascota al usuario o propietario en las mismas condiciones en que se le fue entregada para su cuidado; ahora bien, si algo llega a sucederle a la mascota mientras está bajo tu cuidado, deberás informar y responder al propietario de este (usuario), acudir inmediatamente a los servicios veterinarios cuando así se requiera, previa autorización del propietario. Finalmente, deberás informar a Terque® máximo en ocho (8) horas hábiles posteriores a la ocurrencia de cualquier anomalía en la prestación del servicio.</p>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Cuáles son los requisitos para la póliza y el plan premium?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
-</button>
 </div>
-<div class="group">
-<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-<span class="text-base font-bold faq-question-text">¿Qué beneficios tengo con la póliza de Sura como cuidador de terque?</span>
-<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-4" id="faq-cuidadores-4-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cómo se realiza el pago por el servicio que he prestado?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
 </button>
+<div class="accordion-content px-6" id="faq-cuidadores-4" role="region" aria-labelledby="faq-cuidadores-4-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">El valor correspondiente del servicio prestado será transferido a la cuenta bancaria que EL CUIDADOR indique, con una periodicidad semanal, descontando la comisión de Terque® y los impuestos o costos financieros a que haya lugar.</p>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-5" id="faq-cuidadores-5-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cómo es el proceso del plan premium?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-cuidadores-5" role="region" aria-labelledby="faq-cuidadores-5-btn">
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4">Después de adquirir el plan premium, revisamos tus antecedentes en las siguientes entidades: Rama Judicial, Antecedentes Judiciales y Medidas Correctivas. Luego, recibirás una notificación con el enlace para la entrevista y visita domiciliaria virtual con nuestra psicóloga. Si todo sale de manera exitosa, quedarás verificado y tu perfil mostrará una insignia que indica que estás en el plan premium. Recuerda que todos nuestros planes tienen vigencia de un año.</p>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-6" id="faq-cuidadores-6-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cómo cambiar mi plan de verificación?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-cuidadores-6" role="region" aria-labelledby="faq-cuidadores-6-btn">
+<div class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4 space-y-3">
+<p>Para cambiar tu plan, sigue estos pasos:</p>
+<ol class="list-decimal pl-5 space-y-1">
+<li>Inicia sesión con tu usuario y contraseña.</li>
+<li>Haz clic en las tres rayitas en la parte superior izquierda y selecciona el módulo &quot;Plan de verificación&quot;.</li>
+<li>Elige el nuevo plan y haz clic en &quot;Cambiar&quot;.</li>
+<li>Si seleccionas el plan premium, serás dirigido a la pasarela de pagos.</li>
+</ol>
+<p>Ten en cuenta que al cambiar de plan, las validaciones comenzarán desde cero, y todos nuestros planes tienen una vigencia de un año.</p>
+</div>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-7" id="faq-cuidadores-7-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Cuáles son los requisitos para la póliza y el plan premium?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-cuidadores-7" role="region" aria-labelledby="faq-cuidadores-7-btn">
+<div class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4 space-y-3">
+<p>Para adquirir la póliza, debes cumplir con estos requisitos:</p>
+<p>Completar con éxito las siguientes validaciones:</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Revisión de antecedentes en la Rama Judicial, Antecedentes Judiciales y Medidas Correctivas.</li>
+<li>Visita domiciliaria virtual.</li>
+</ul>
+<p>Una vez superes estos pasos, podrás disfrutar de la cobertura de la póliza.</p>
+</div>
+</div>
+</div>
+<div class="group accordion-item">
+<button class="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-expanded="false" aria-controls="faq-cuidadores-8" id="faq-cuidadores-8-btn" onclick="toggleFaq(this)">
+<span class="text-base font-bold faq-question-text pr-4">¿Qué beneficios tengo con la póliza de Sura como cuidador de terque?</span>
+<span class="material-symbols-outlined text-federal-blue dark:text-slate-400 group-hover:text-primary transition-colors shrink-0">expand_more</span>
+</button>
+<div class="accordion-content px-6" id="faq-cuidadores-8" role="region" aria-labelledby="faq-cuidadores-8-btn">
+<div class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed pb-4 space-y-3">
+<p>Para acceder a la póliza de Sura como cuidador en Terque, debes estar suscrito al plan premium y haber aprobado todas las evaluaciones realizadas por la psicóloga de la compañía. La póliza de Sura ofrece las siguientes coberturas:</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Gastos de defensa en procesos civiles y penales. En procesos civiles hasta el 100% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV. En procesos penales hasta el 10% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV.</li>
+<li>Gastos Médicos de atención inicial de urgencias. Hasta el 4% del límite máximo por cuidador. Sin deducible.</li>
+<li>Bienes bajo cuidado, tenencia y control con las mascotas: Se cubren los perjuicios patrimoniales y extrapatrimoniales por los daños causados a otras personas o a sus bienes por la mascota al servicio del cuidador durante la vigencia del seguro por los que sea responsable el cuidador y/o Spidersecurity. Hasta el 100% del límite máximo por cuidador y deducible de 10% de la pérdida, mínimo 2 SMMLV.</li>
+</ul>
+<p class="font-semibold">Procedimiento en caso de accidente o emergencia:</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>En caso de una emergencia veterinaria, puedes llevar a la mascota al centro veterinario que prefiera el dueño o al que acuerden en ese momento. El costo del servicio será reembolsado por Sura una vez hayas completado el proceso de reclamación.</li>
+<li>Si ocurre un accidente o alguna eventualidad, comunícate con Sura al #888 y selecciona las opciones correspondientes a tu caso.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -207,10 +290,8 @@
 <div>
 <h5 class="font-bold mb-6">Servicios</h5>
 <ul class="space-y-4 text-sm text-blue-100/70">
-<li><a class="hover:text-primary transition-colors" href="#">Alojamiento nocturno</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Alojamientos</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Cuidado de día</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Paseos de perros</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Visitas a domicilio</a></li>
 </ul>
 </div>
 <div>
@@ -248,4 +329,18 @@
 </div>
 </footer>
 
+<script>
+function toggleFaq(btn) {
+  var item = btn.closest('.accordion-item');
+  var isOpen = item.classList.contains('is-open');
+  document.querySelectorAll('.accordion-item.is-open').forEach(function (el) { el.classList.remove('is-open'); el.querySelector('button').setAttribute('aria-expanded', 'false'); });
+  if (!isOpen) {
+    item.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+</script>
+<a href="https://api.whatsapp.com/send/?phone=573102982363&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 border-2 border-green-500">
+<img alt="WhatsApp" class="w-12 h-12 object-contain" src="images/wsp_logo.png"/>
+</a>
 </body></html>
