@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista previa</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    .bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 0.5rem 1rem;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .bar a {
+      padding: 0.4rem 0.8rem;
+      background: #1976d2;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .bar a:hover { background: #1565c0; }
+    .bar .src { color: #666; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    iframe {
+      display: block;
+      border: none;
+      width: 100%;
+      height: calc(100vh - 48px);
+      margin-top: 48px;
+    }
+    .error { padding: 2rem; color: #c62828; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <a href="index.html">Volver al menú</a>
+    <span class="src" id="src-label"></span>
+  </div>
+  <div id="frame-wrap"></div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var src = params.get('src');
+      var wrap = document.getElementById('frame-wrap');
+      var label = document.getElementById('src-label');
+      if (!src) {
+        wrap.innerHTML = '<p class="error">Falta el parámetro <code>src</code>. Usa los enlaces del menú principal.</p>';
+        return;
+      }
+      label.textContent = src;
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = 'Vista previa';
+      wrap.appendChild(iframe);
+      iframe.onerror = function () {
+        wrap.innerHTML = '<p class="error">No se pudo cargar: ' + escapeHtml(src) + '</p>';
+      };
+      function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+      }
+    })();
+  </script>
+</body>
+</html>

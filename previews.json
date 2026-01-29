@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "name": "Ezoz",
+      "previews": [
+        { "name": "Propuesta 1", "path": "mocks/ezoz/propuesta_1.html" },
+        { "name": "Propuesta 2", "path": "mocks/ezoz/propuesta_2.html" },
+        { "name": "Propuesta 3", "path": "mocks/ezoz/propuesta_3.html" }
+      ]
+    },
+    {
       "name": "Proyecto A",
       "previews": [
         { "name": "Pantalla 1", "path": "mocks/proyecto-a/pantalla1.html" },

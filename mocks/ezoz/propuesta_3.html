@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EZOZ | Gestión de Inversiones Premium</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D4AF37", // Oro
+              silver: "#C0C0C0",
+              "background-light": "#FAFAFA",
+              "charcoal": "#1A1A1A",
+            },
+            fontFamily: {
+              display: ["Montserrat", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        .gold-gradient-text {
+            background: linear-gradient(to right, #BF953F, #D4AF37, #B38728, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .silver-border {
+            border: 1px solid rgba(192, 192, 192, 0.4);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .bg-chart-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(192, 192, 192, 0.15) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(250,250,250,0) 0%, rgba(250,250,250,1) 100%);
+        }
+    </style>
+</head>
+<body class="font-body bg-background-light text-charcoal selection:bg-primary selection:text-white">
+<header class="fixed w-full z-50 transition-all duration-500 border-b border-gray-200 glass-effect" id="main-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20 transition-all duration-500" id="header-container">
+<div class="flex items-center space-x-2">
+<img alt="Logo EZOZ" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjk6PDL1zDS1WXs_dilVqdd0Ms2AxnY7dp6tcYtSBMDzwoq0LCDCrH4bh87q-wEkBPg16CHAzn3VLhpvn9yQ4aTsYQ4ge1CQra0FHQizafUEEVmXgTQXy__jT4XPuUelKccNFjFAsESjNjYJvbhusq-4XOgZB3F-xItZZ8gzgvv7fGuK5tU384bQy-IcwErhfqCWmscYw4Rcte135GmAWsO4ra9Vjjr_JrCYxfka1ZUPCemkEys4BNxokikiUKdTucID1aXz3j_e8"/>
+<span class="text-2xl font-display font-bold tracking-widest gold-gradient-text">EZOZ</span>
+</div>
+<nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest">
+<a class="hover:text-primary transition-colors text-charcoal/70 hover:text-charcoal" href="#">Estrategias</a>
+<a class="hover:text-primary transition-colors text-charcoal/70 hover:text-charcoal" href="#">Análisis</a>
+<a class="hover:text-primary transition-colors text-charcoal/70 hover:text-charcoal" href="#">Portafolio</a>
+<a class="hover:text-primary transition-colors text-charcoal/70 hover:text-charcoal" href="#">Nosotros</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="hidden lg:block text-xs font-bold hover:text-primary transition-colors tracking-widest">ACCESO</button>
+<button class="bg-charcoal hover:bg-black text-white px-6 py-2.5 rounded font-bold text-xs uppercase tracking-widest transition-all border border-charcoal hover:shadow-lg">
+                    Comenzar ahora
+                </button>
+</div>
+</div>
+</div>
+</header>
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
+<div class="absolute inset-0 z-0">
+<img alt="Arquitectura Moderna" class="w-full h-full object-cover opacity-10 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAGJdrlIdSkdyubUzjQ8su7CwQwRkPV5iiIR1wbjTVQr6peGrDmtasqdaSjJKvMnVzVD1Z-TRwLPKcIgVXhG76C3SRINCYQf8DKlrP360g5TKD11tXEv_Vep6wc3wzhLo_XGP5eZj9KrvVivJHIXwDS5okp99xk1kFSMTayZAGdTlrKV5v7o0pGcxtJG4dvOma3feldp9uTwew5dZStY5JITRvHHz1m6Qtd-rr66RZvkwScPcoaG73aeD7pPOSGLsMrgFnbBOqfHM"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center space-x-2 bg-charcoal/5 border border-charcoal/10 px-4 py-1.5 rounded-full text-[10px] font-bold text-charcoal uppercase tracking-widest">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span>Gestión Patrimonial Premium</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-display font-bold leading-tight text-charcoal">
+                Haz crecer tu <br/>
+<span class="gold-gradient-text">patrimonio con EZOZ</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed font-light">
+                Eleve su portafolio con las estrategias de inversión de élite y los análisis de mercado en tiempo real de EZOZ. Asegure su legado con un socio que valora la precisión tanto como el rendimiento.
+            </p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest hover:bg-yellow-600 transition-all flex items-center justify-center shadow-lg shadow-primary/20">
+                    Comenzar ahora
+                    <span class="material-symbols-outlined ml-2 text-sm">trending_up</span>
+</button>
+<button class="bg-white border-2 border-slate-200 text-charcoal px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest hover:border-charcoal transition-colors">
+                    Ver Estrategias
+                </button>
+</div>
+<div class="flex items-center space-x-12 pt-4">
+<div class="flex flex-col">
+<span class="text-3xl font-bold font-display text-charcoal">12.4%</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Retorno Anual Promedio</span>
+</div>
+<div class="w-px h-12 bg-slate-200"></div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold font-display text-charcoal">$4.2B+</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Activos Gestionados</span>
+</div>
+</div>
+</div>
+<div class="hidden lg:block relative">
+<div class="absolute -inset-10 bg-primary/5 rounded-full blur-3xl"></div>
+<img alt="Branding EZOZ" class="relative w-full max-w-lg mx-auto drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0b3OfbeA8TXfFs5Z2AMYz9Df8UvZOSCP2Kvwjo_buC1DAFVvXwl7kHABk6JjNOrQjF5vo0k8iwmajwyWMdjzmZsDs6RH5AJ-q5IIlErLfaVOjTIHFIRns6jjgmoOOr2b0ujnsVJ90EliOWBdtenlX9fgJvXBmcM1X0W0vSodbrW3ErBoz1z8qfSCN64ndQqSNNaiUgWxV88iLvUwXqIyWUlJq4XhCy1QZhgfPRm6m3h0iQ3j4DuuBnWqyWC-C_YUhbBOuxS7jgS8"/>
+</div>
+</div>
+</section>
+<section class="py-24 relative overflow-hidden bg-background-light bg-chart-pattern">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-20 space-y-4">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.4em]">Nuestra Experiencia</h2>
+<h3 class="text-4xl font-display font-bold text-charcoal">Estrategias de Inversión</h3>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white silver-border p-10 rounded-2xl hover:shadow-2xl transition-all duration-500 group">
+<div class="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">account_balance_wallet</span>
+</div>
+<h4 class="text-xl font-bold mb-4 font-display text-charcoal uppercase tracking-tight">Renta Fija Plus</h4>
+<p class="text-slate-500 leading-relaxed mb-8 text-sm">
+                    Estabilidad optimizada con rendimientos consistentes a través de instrumentos de deuda corporativa y soberana premium.
+                </p>
+<a class="text-primary text-[10px] font-bold uppercase tracking-[0.2em] flex items-center group-hover:translate-x-2 transition-transform" href="#">
+                    Explorar Estrategia <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white border-2 border-primary/20 p-10 rounded-2xl shadow-xl shadow-primary/5 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-[0.03]">
+<span class="material-symbols-outlined text-9xl text-charcoal">monitoring</span>
+</div>
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">insights</span>
+</div>
+<h4 class="text-xl font-bold mb-4 font-display text-charcoal uppercase tracking-tight">Fondo Global</h4>
+<p class="text-slate-500 leading-relaxed mb-8 text-sm">
+                    Gestión de renta variable agresiva enfocada en mercados tecnológicos emergentes y líderes en energía sostenible.
+                </p>
+<a class="text-primary text-[10px] font-bold uppercase tracking-[0.2em] flex items-center group-hover:translate-x-2 transition-transform" href="#">
+                    Explorar Estrategia <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white silver-border p-10 rounded-2xl hover:shadow-2xl transition-all duration-500 group">
+<div class="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">pie_chart</span>
+</div>
+<h4 class="text-xl font-bold mb-4 font-display text-charcoal uppercase tracking-tight">Capital Privado Alpha</h4>
+<p class="text-slate-500 leading-relaxed mb-8 text-sm">
+                    Acceso exclusivo a proyectos privados de alto crecimiento y oportunidades pre-IPO para inversores calificados.
+                </p>
+<a class="text-primary text-[10px] font-bold uppercase tracking-[0.2em] flex items-center group-hover:translate-x-2 transition-transform" href="#">
+                    Explorar Estrategia <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white border-y border-slate-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="absolute -inset-4 bg-slate-100 rounded-[2rem] -z-10 rotate-1"></div>
+<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-2xl">
+<div class="bg-charcoal px-6 py-4 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-amber-400"></div>
+<div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+</div>
+<span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">Terminal EZOZ V1.0</span>
+</div>
+<div class="p-8 space-y-10 bg-white">
+<div class="flex items-end justify-between border-b border-slate-100 pb-8">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold mb-2 tracking-widest">Valor de Portafolio</p>
+<p class="text-4xl font-display font-bold text-charcoal">$1,452,900.24</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-emerald-600 font-bold mb-1 flex items-center justify-end">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span> +2.4%
+                            </p>
+<p class="text-sm text-slate-400 font-mono tracking-tighter">+$34,220.00</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 h-40 items-end">
+<div class="bg-slate-100 h-[60%] rounded-md hover:bg-primary/20 transition-colors"></div>
+<div class="bg-slate-100 h-[80%] rounded-md hover:bg-primary/20 transition-colors"></div>
+<div class="bg-slate-100 h-[70%] rounded-md hover:bg-primary/20 transition-colors"></div>
+<div class="bg-primary h-[95%] rounded-md relative shadow-lg shadow-primary/20">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] bg-charcoal text-white px-2 py-0.5 rounded font-bold tracking-widest">VIVO</div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-slate-400 uppercase tracking-[0.2em] font-bold">
+<span>LUN</span><span>MAR</span><span>MIE</span><span class="text-primary">JUE (HOY)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.4em]">Rendimiento Inigualable</h2>
+<h3 class="text-4xl font-display font-bold leading-tight text-charcoal uppercase tracking-tight">Análisis en <br/>Tiempo Real</h3>
+<p class="text-slate-500 leading-relaxed text-lg font-light">
+                Experimente el poder de los datos de grado institucional. Nuestro motor de análisis procesa millones de puntos de datos para ofrecer información útil, manteniéndolo por delante de la volatilidad del mercado.
+            </p>
+<ul class="space-y-6 pt-4">
+<li class="flex items-start space-x-4">
+<div class="mt-1 bg-primary/10 p-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+</div>
+<div>
+<p class="font-bold text-charcoal text-sm uppercase tracking-wide">Seguimiento Global</p>
+<p class="text-slate-500 text-sm">Monitoreo en más de 40 bolsas internacionales.</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<div class="mt-1 bg-primary/10 p-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+</div>
+<div>
+<p class="font-bold text-charcoal text-sm uppercase tracking-wide">Inteligencia Artificial</p>
+<p class="text-slate-500 text-sm">Evaluación de riesgos y análisis de sentimiento avanzado.</p>
+</div>
+</li>
+</ul>
+<button class="mt-8 inline-flex items-center text-[10px] font-bold uppercase tracking-[0.3em] text-charcoal border-b-2 border-primary pb-2 hover:text-primary transition-colors">
+                CONOZCA NUESTRA TECNOLOGÍA
+                <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 space-y-4">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.4em]">Éxito del Cliente</h2>
+<h3 class="text-4xl font-display font-bold text-charcoal">Testimonios de Clientes</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white border border-slate-200 p-8 rounded-2xl relative shadow-sm hover:shadow-xl transition-shadow">
+<span class="material-symbols-outlined absolute top-4 right-8 text-6xl text-primary/5">format_quote</span>
+<div class="flex space-x-1 text-primary mb-6">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-slate-500 italic mb-8 relative z-10 leading-relaxed">
+                    "EZOZ transformó nuestra gestión de tesorería corporativa. Su transparencia y rendimientos consistentes han superado nuestras expectativas anualmente."
+                </p>
+<div class="flex items-center space-x-4 border-t border-slate-50 pt-6">
+<div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">JD</div>
+<div>
+<p class="font-bold text-[10px] uppercase tracking-widest text-charcoal">Jonathan Doe</p>
+<p class="text-[10px] text-slate-400 font-bold">CEO, APEX GLOBAL</p>
+</div>
+</div>
+</div>
+<div class="bg-white border-2 border-primary/10 p-8 rounded-2xl relative shadow-lg">
+<span class="material-symbols-outlined absolute top-4 right-8 text-6xl text-primary/5">format_quote</span>
+<div class="flex space-x-1 text-primary mb-6">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-slate-500 italic mb-8 relative z-10 leading-relaxed">
+                    "El nivel de sofisticación en sus análisis en tiempo real es inigualable. Finalmente siento que tengo una ventaja institucional en el mercado retail."
+                </p>
+<div class="flex items-center space-x-4 border-t border-slate-50 pt-6">
+<div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">SM</div>
+<div>
+<p class="font-bold text-[10px] uppercase tracking-widest text-charcoal">Sarah Miller</p>
+<p class="text-[10px] text-slate-400 font-bold">INVERSORA PRIVADA</p>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-8 rounded-2xl relative shadow-sm hover:shadow-xl transition-shadow">
+<span class="material-symbols-outlined absolute top-4 right-8 text-6xl text-primary/5">format_quote</span>
+<div class="flex space-x-1 text-primary mb-6">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-slate-500 italic mb-8 relative z-10 leading-relaxed">
+                    "Un servicio premium para quienes valoran la excelencia. EZOZ no solo gestiona patrimonio; ellos diseñan libertad financiera a largo plazo."
+                </p>
+<div class="flex items-center space-x-4 border-t border-slate-50 pt-6">
+<div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">RK</div>
+<div>
+<p class="font-bold text-[10px] uppercase tracking-widest text-charcoal">Robert Knight</p>
+<p class="text-[10px] text-slate-400 font-bold">DIRECTOR, KNIGHT ESTATES</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 relative bg-white">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+<div class="bg-charcoal p-16 rounded-[2.5rem] space-y-10 shadow-2xl overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+<div class="relative z-10">
+<h3 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase tracking-tight leading-tight">¿Listo para elevar <br/>su capital?</h3>
+<p class="text-lg text-slate-400 max-w-2xl mx-auto font-light mb-12">
+                    Únase a un círculo exclusivo de inversores y comience a hacer crecer su patrimonio con estrategias de precisión hoy mismo.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+<button class="bg-primary text-white px-12 py-5 rounded-xl font-bold text-xs uppercase tracking-[0.3em] shadow-xl shadow-primary/20 hover:bg-yellow-600 transition-all active:scale-95">
+                        Comenzar ahora
+                    </button>
+<button class="bg-white/5 border border-white/10 text-white px-12 py-5 rounded-xl font-bold text-xs uppercase tracking-[0.3em] hover:bg-white/10 transition-colors">
+                        Agendar Consultoría
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-charcoal text-white pt-24 pb-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-16 pb-20 border-b border-white/5">
+<div class="col-span-1 md:col-span-1 space-y-8">
+<div class="flex items-center space-x-2">
+<img alt="Logo EZOZ Footer" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy3xKTIxPwbSyRmh1BcuPIKVJfZnQAXVJpkK4BkCoRrTDH6hVpTn_SutdLnUKLteyPGNh__gt3WbGr1-OGWIDeEf9sKAmZ7Dj2zKe9jwtCRGlrQj5rZSRCQpspPZbM6rWnAfkeY1Lf47YXzwjkKQcGfcMTzupTsKWJu2iwgzjAd5Kk1goMmuOpTNd8Q_SwSmkcVvHZVMLFeL49BR0ADyt4X20O-azBoPpVkty66WN7-cV0W_q4zhI41Son0kQE13yqcBrgtk7hrCU"/>
+<span class="text-2xl font-display font-bold tracking-widest gold-gradient-text">EZOZ</span>
+</div>
+<p class="text-slate-400 text-sm font-light leading-relaxed">
+                Gestión de inversiones premium para la era moderna. Construyendo riqueza generacional a través de la excelencia estratégica y análisis de vanguardia.
+            </p>
+<div class="flex space-x-4">
+<a class="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary transition-colors hover:bg-white/5" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary transition-colors hover:bg-white/5" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+<a class="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary transition-colors hover:bg-white/5" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-bold text-[10px] uppercase tracking-[0.4em] text-primary mb-10">Soluciones</h5>
+<ul class="space-y-4 text-[13px] text-slate-400 font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Gestión Patrimonial</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Renta Fija</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Portafolios de Crecimiento</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Criptoactivos</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[10px] uppercase tracking-[0.4em] text-primary mb-10">Compañía</h5>
+<ul class="space-y-4 text-[13px] text-slate-400 font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Equipo Ejecutivo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sostenibilidad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Carreras</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[10px] uppercase tracking-[0.4em] text-primary mb-10">Legal</h5>
+<ul class="space-y-4 text-[13px] text-slate-400 font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Términos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Riesgos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Licencias</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<p>© 2024 EZOZ Investment Group. Todos los derechos reservados.</p>
+<div class="mt-6 md:mt-0 flex space-x-8">
+<span class="hover:text-white cursor-default">Londres</span>
+<span class="hover:text-white cursor-default">Nueva York</span>
+<span class="hover:text-white cursor-default">Zúrich</span>
+<span class="hover:text-white cursor-default">Singapur</span>
+</div>
+</div>
+</footer>
+<script>
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        const container = document.getElementById('header-container');
+        if (window.scrollY > 20) {
+            header.classList.add('bg-white/95', 'shadow-sm');
+            header.classList.remove('bg-white/80');
+            container.classList.add('h-16');
+            container.classList.remove('h-20');
+        } else {
+            header.classList.remove('bg-white/95', 'shadow-sm');
+            header.classList.add('bg-white/80');
+            container.classList.add('h-20');
+            container.classList.remove('h-16');
+        }
+    });
+</script>
+
+</body></html>
