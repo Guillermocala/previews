@@ -24,38 +24,43 @@
   <script>
     (function () {
       var root = document.getElementById('root');
-      fetch('previews.json')
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('No se pudo cargar previews.json')); })
-        .then(function (data) {
-          root.className = '';
-          root.innerHTML = '';
-          if (!data.projects || !data.projects.length) {
-            root.innerHTML = '<p class="error">No hay proyectos en previews.json.</p>';
-            return;
-          }
-          data.projects.forEach(function (project) {
-            var section = document.createElement('div');
-            section.className = 'project';
-            var title = document.createElement('h2');
-            title.textContent = project.name;
-            section.appendChild(title);
-            var list = document.createElement('div');
-            list.className = 'preview-list';
-            (project.previews || []).forEach(function (preview) {
-              var a = document.createElement('a');
-              a.className = 'preview-link';
-              a.href = 'viewer.html?src=' + encodeURIComponent(preview.path);
-              a.textContent = preview.name;
-              list.appendChild(a);
-            });
-            section.appendChild(list);
-            root.appendChild(section);
+      var fallback = { "projects": [ { "name": "Proyecto A", "previews": [ { "name": "Pantalla 1", "path": "mocks/proyecto-a/pantalla1.html" }, { "name": "Pantalla 2", "path": "mocks/proyecto-a/pantalla2.html" } ] }, { "name": "Proyecto B", "previews": [ { "name": "Home", "path": "mocks/proyecto-b/home.html" } ] }, { "previews": [ { "name": "Inicio", "path": "mocks/Terque rediseño landing wordpress/index.html" }, { "name": "FAQ", "path": "mocks/Terque rediseño landing wordpress/faq.html" }, { "name": "Quiénes somos", "path": "mocks/Terque rediseño landing wordpress/quienes_somos.html" } ] } ] };
+      function projectName(project) {
+        if (project.name) return project.name;
+        var first = (project.previews && project.previews[0]) ? project.previews[0].path : '';
+        var dir = first.lastIndexOf('/') >= 0 ? first.slice(0, first.lastIndexOf('/')) : '';
+        return dir.lastIndexOf('/') >= 0 ? dir.slice(dir.lastIndexOf('/') + 1) : dir || 'Sin nombre';
+      }
+      function render(data) {
+        root.className = '';
+        root.innerHTML = '';
+        if (!data.projects || !data.projects.length) {
+          root.innerHTML = '<p class="error">No hay proyectos en previews.json.</p>';
+          return;
+        }
+        data.projects.forEach(function (project) {
+          var section = document.createElement('div');
+          section.className = 'project';
+          var title = document.createElement('h2');
+          title.textContent = projectName(project);
+          section.appendChild(title);
+          var list = document.createElement('div');
+          list.className = 'preview-list';
+          (project.previews || []).forEach(function (preview) {
+            var a = document.createElement('a');
+            a.className = 'preview-link';
+            a.href = 'viewer.html?src=' + encodeURIComponent(preview.path);
+            a.textContent = preview.name;
+            list.appendChild(a);
           });
-        })
-        .catch(function (err) {
-          root.className = 'error';
-          root.innerHTML = '<p>Error: ' + (err.message || 'cargando lista') + '.</p>';
+          section.appendChild(list);
+          root.appendChild(section);
         });
+      }
+      fetch('previews.json')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(render)
+        .catch(function () { render(fallback); });
     })();
   </script>
 </body>

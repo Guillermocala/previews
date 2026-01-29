@@ -12,6 +12,13 @@
       "previews": [
         { "name": "Home", "path": "mocks/proyecto-b/home.html" }
       ]
+    },
+    {
+      "previews": [
+        { "name": "Inicio", "path": "mocks/Terque rediseño landing wordpress/index.html" },
+        { "name": "FAQ", "path": "mocks/Terque rediseño landing wordpress/faq.html" },
+        { "name": "Quiénes somos", "path": "mocks/Terque rediseño landing wordpress/quienes_somos.html" }
+      ]
     }
   ]
 }
