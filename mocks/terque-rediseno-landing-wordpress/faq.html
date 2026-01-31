@@ -43,35 +43,120 @@
         .dark .faq-question-text { color: #F1F5F9; }
         .dark .faq-category-title { color: #F47F32; }
         .dark .bg-white { background-color: #0F172A; }
+        .dark .text-federal-blue { color: #F1F5F9; }
         .dark .border-slate-100, .dark .border-slate-200 { border-color: #1E293B; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .accordion-item.is-open .accordion-content { max-height: 800px; padding-bottom: 1rem; }
-        .accordion-item.is-open .material-symbols-outlined { transform: rotate(180deg); }
+        .accordion-content {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows 0.35s ease-in-out;
+          overflow: hidden;
+        }
+        .accordion-item.is-open .accordion-content {
+          grid-template-rows: 1fr;
+        }
+        .accordion-content > * {
+          min-height: 0;
+          overflow: hidden;
+          padding-top: 0;
+          padding-bottom: 0;
+          transition: padding-top 0.35s ease-in-out, padding-bottom 0.35s ease-in-out;
+        }
+        .accordion-item.is-open .accordion-content > * {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+        .accordion-item button .material-symbols-outlined.shrink-0 {
+          transition: transform 0.35s ease-in-out;
+        }
+        .accordion-item.is-open button .material-symbols-outlined.shrink-0 {
+          transform: rotate(180deg);
+        }
+        #mobile-menu { transition: max-height 0.25s ease-out; }
+        #mobile-menu:not(.open) { max-height: 0; overflow: hidden; opacity: 0; }
+        #mobile-menu.open { max-height: 80vh; opacity: 1; }
+        .accordion-item.faq-search-hidden { display: none; }
+        .faq-section.faq-section-empty { display: none; }
     </style>
+<script>(function(){try{var t=localStorage.getItem('terque-theme');var r=document.documentElement;if(t==='dark'){r.classList.add('dark');r.classList.remove('light');}else{r.classList.remove('dark');r.classList.add('light');}}catch(e){}})();</script>
 </head>
 <body class="transition-colors duration-300">
+<script>(function(){if(window.self!==window.top){window.top.postMessage({type:'viewer-sync',path:'mocks/terque-rediseno-landing-wordpress/faq.html'},'*');}})();</script>
 <header class="fixed w-full top-0 z-50 header-bg backdrop-blur-md border-b border-slate-100 transition-colors">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <div class="flex items-center">
 <a href="home.html"><img alt="Terque Logo" class="h-10 w-auto dark:brightness-0 dark:invert transition-all" src="images/logo-terque.png"/></a>
 </div>
 <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-federal-blue">
-<a class="hover:text-primary transition-colors" href="home.html">Encontrar Cuidadores</a>
+<a class="hover:text-primary transition-colors" href="https://app.terque.com/Home" target="_blank" rel="noopener noreferrer">Encontrar Cuidadores</a>
 <a class="hover:text-primary transition-colors" href="home.html#como-funciona">Cómo Funciona</a>
-<a class="hover:text-primary transition-colors" href="#">Conviértete en Cuidador</a>
+<a class="hover:text-primary transition-colors" href="https://tenant.terque.com/Auth/OwnerSignUp" target="_blank" rel="noopener noreferrer">Conviértete en Cuidador</a>
 <a class="hover:text-primary transition-colors" href="quienes_somos.html">¿Quiénes somos?</a>
 <a class="text-primary transition-colors border-b-2 border-primary" href="faq.html">FAQ</a>
 </nav>
-<div class="flex items-center space-x-4">
-<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center text-federal-blue" onclick="document.documentElement.classList.toggle('dark')">
+<div class="flex items-center space-x-2 sm:space-x-4">
+<button type="button" id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-federal-blue" aria-label="Abrir menú" aria-expanded="false">
+<span class="material-symbols-outlined menu-icon">menu</span>
+<span class="material-symbols-outlined close-icon hidden">close</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center text-federal-blue" onclick="var r=document.documentElement;r.classList.toggle('dark');r.classList.toggle('light');localStorage.setItem('terque-theme',r.classList.contains('dark')?'dark':'light');">
 <span class="material-symbols-outlined dark:hidden">dark_mode</span>
 <span class="material-symbols-outlined hidden dark:block">light_mode</span>
 </button>
-<a class="hidden sm:block text-sm font-bold text-federal-blue hover:text-primary transition-colors" href="#">Iniciar Sesión</a>
-<a class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform active:scale-95" href="#">Regístrate</a>
+<a class="hidden sm:inline-flex text-sm font-bold text-federal-blue hover:text-primary transition-colors" href="https://app.terque.com/Auth/Login" target="_blank" rel="noopener noreferrer">Iniciar Sesión</a>
+<a class="hidden sm:inline-flex bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform active:scale-95" href="https://app.terque.com/Auth/TypeSignUp" target="_blank" rel="noopener noreferrer">Regístrate</a>
 </div>
+</div>
+<div id="mobile-menu" class="md:hidden header-bg border-t border-slate-100 dark:border-slate-800" aria-hidden="true">
+<nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-1 text-sm font-semibold text-federal-blue">
+<a class="py-3 px-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-colors" href="https://app.terque.com/Home" target="_blank" rel="noopener noreferrer">Encontrar Cuidadores</a>
+<a class="py-3 px-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-colors" href="home.html#como-funciona">Cómo Funciona</a>
+<a class="py-3 px-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-colors" href="https://tenant.terque.com/Auth/OwnerSignUp" target="_blank" rel="noopener noreferrer">Conviértete en Cuidador</a>
+<a class="py-3 px-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-colors" href="quienes_somos.html">¿Quiénes somos?</a>
+<a class="py-3 px-2 rounded-lg bg-primary/10 text-primary font-bold transition-colors" href="faq.html">FAQ</a>
+<div class="border-t border-slate-200 dark:border-slate-700 my-3"></div>
+<p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 pt-2 pb-1">Síguenos</p>
+<div class="flex gap-3 pb-3">
+<a aria-label="Facebook" class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-federal-blue" href="https://www.facebook.com/profile.php?id=61553140247271" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-xl">public</span></a>
+<a aria-label="Instagram" class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-federal-blue" href="https://www.instagram.com/terqueapp" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-xl">camera_alt</span></a>
+<a aria-label="TikTok" class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-federal-blue" href="https://www.tiktok.com/@terqueapp6" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-xl">smart_display</span></a>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-700 my-3"></div>
+<a class="py-3 px-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-colors text-center block" href="https://app.terque.com/Auth/Login" target="_blank" rel="noopener noreferrer">Iniciar Sesión</a>
+<a class="inline-flex mt-2 py-3 px-4 rounded-full bg-primary text-white font-bold justify-center hover:bg-orange-600 transition-colors" href="https://app.terque.com/Auth/TypeSignUp" target="_blank" rel="noopener noreferrer">Regístrate</a>
+</nav>
 </div>
 </header>
+<script>
+(function(){
+var btn = document.getElementById('mobile-menu-btn');
+var menu = document.getElementById('mobile-menu');
+var menuIcon = btn && btn.querySelector('.menu-icon');
+var closeIcon = btn && btn.querySelector('.close-icon');
+if (!btn || !menu) return;
+function open() {
+  menu.classList.add('open');
+  menu.setAttribute('aria-hidden', 'false');
+  btn.setAttribute('aria-expanded', 'true');
+  btn.setAttribute('aria-label', 'Cerrar menú');
+  if (menuIcon) menuIcon.classList.add('hidden');
+  if (closeIcon) closeIcon.classList.remove('hidden');
+}
+function close() {
+  menu.classList.remove('open');
+  menu.setAttribute('aria-hidden', 'true');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Abrir menú');
+  if (menuIcon) menuIcon.classList.remove('hidden');
+  if (closeIcon) closeIcon.classList.add('hidden');
+}
+btn.addEventListener('click', function() {
+  if (menu.classList.contains('open')) close(); else open();
+});
+menu.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', close);
+});
+})();
+</script>
 <main class="pt-32 pb-24 min-h-screen">
 <div class="max-w-4xl mx-auto px-6">
 <div class="text-center mb-16 space-y-6">
@@ -86,11 +171,16 @@
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
 <span class="material-symbols-outlined text-slate-400">search</span>
 </div>
-<input class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-medium transition-all" placeholder="Busca tu duda (ej: requisitos para cuidadores, pagos...)" type="text"/>
+<input id="faq-search" class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-medium transition-all" placeholder="Busca tu duda (ej: requisitos para cuidadores, pagos...)" type="text" autocomplete="off"/>
+</div>
+<div id="faq-no-results" class="hidden mt-8 py-12 px-6 text-center bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500 mb-4 block">search_off</span>
+<p class="text-slate-600 dark:text-slate-400 font-medium">No se encontraron coincidencias.</p>
+<p class="text-sm text-slate-500 dark:text-slate-500 mt-2">Prueba con otras palabras o <a class="text-primary hover:underline" href="https://api.whatsapp.com/send/?phone=573102982363&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">contáctanos</a> si necesitas ayuda.</p>
 </div>
 </div>
-<div class="space-y-16">
-<section>
+<div class="space-y-16" id="faq-sections">
+<section class="faq-section">
 <div class="flex items-center gap-3 mb-8">
 <span class="material-symbols-outlined text-primary bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">person</span>
 <h2 class="text-3xl font-bold faq-category-title uppercase tracking-wide">Usuarios</h2>
@@ -153,7 +243,7 @@
 </div>
 </div>
 </section>
-<section>
+<section class="faq-section">
 <div class="flex items-center gap-3 mb-8">
 <span class="material-symbols-outlined text-primary bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">volunteer_activism</span>
 <h2 class="text-3xl font-bold faq-category-title uppercase tracking-wide">Cuidadores</h2>
@@ -273,7 +363,7 @@
 <div class="mt-24 text-center">
 <div class="inline-flex items-center gap-4 px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-500">
 <span class="material-symbols-outlined text-primary">contact_support</span>
-                    ¿No encontraste lo que buscabas? <a class="text-primary font-bold hover:underline" href="#">Habla con nosotros</a>
+                    ¿No encontraste lo que buscabas? <a class="text-primary font-bold hover:underline" href="https://api.whatsapp.com/send/?phone=573102982363&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Habla con nosotros</a>
 </div>
 </div>
 </div>
@@ -281,49 +371,40 @@
 <footer class="bg-federal-blue text-white py-16">
 <div class="max-w-7xl mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-<div class="col-span-1 md:col-span-1">
-<img alt="Terque Logo Inverse" class="h-10 w-auto brightness-0 invert mb-6" src="images/logo-terque.png"/>
-<p class="text-blue-100/70 text-sm leading-relaxed">
-                        Conectando corazones y huellas. La plataforma líder en cuidado de mascotas en España y Latinoamérica.
-                    </p>
+<div class="col-span-1 md:col-span-1 flex items-center">
+<a href="home.html" class="block"><img alt="Terque Logo Inverse" class="h-16 md:h-20 w-auto brightness-0 invert" src="images/logo-terque.png"/></a>
 </div>
 <div>
-<h5 class="font-bold mb-6">Servicios</h5>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Servicios</h5>
 <ul class="space-y-4 text-sm text-blue-100/70">
-<li><a class="hover:text-primary transition-colors" href="#">Alojamientos</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Cuidado de día</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="https://app.terque.com/Home" target="_blank" rel="noopener noreferrer"><span class="w-1 h-1 bg-primary rounded-full"></span> Alojamientos</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="https://app.terque.com/Home" target="_blank" rel="noopener noreferrer"><span class="w-1 h-1 bg-primary rounded-full"></span> Cuidado de día</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-bold mb-6">Compañía</h5>
-<ul class="space-y-4 text-sm text-blue-100/70">
-<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotros</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Seguridad</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Nuestro Contacto</h5>
+<ul class="space-y-3 text-sm text-blue-100/90">
+<li><a class="hover:text-primary transition-colors" href="tel:+573102982363">(57) 310 298 23 63</a></li>
+<li>Cra 25A #1-31</li>
+<li>Medellín Colombia</li>
+<li><a class="hover:text-primary transition-colors" href="mailto:soporte@spidersecurity.co">soporte@spidersecurity.co</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-bold mb-6">Síguenos</h5>
-<div class="flex space-x-4">
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">social_leaderboard</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">camera_alt</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">share</span>
-</a>
-</div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-wider text-sm">Síguenos</h5>
+<ul class="space-y-3 text-sm text-blue-100/90">
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.facebook.com/profile.php?id=61553140247271" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-lg text-white">public</span> Facebook</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.instagram.com/terqueapp" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-lg text-white">camera_alt</span> Instagram</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.tiktok.com/@terqueapp6" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-lg text-white">smart_display</span> TikTok</a></li>
+</ul>
 </div>
 </div>
 <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-100/50">
 <p>© 2024 Terque. Todos los derechos reservados.</p>
 <div class="flex gap-6">
-<a class="hover:text-white transition-colors" href="#">Privacidad</a>
-<a class="hover:text-white transition-colors" href="#">Términos</a>
-<a class="hover:text-white transition-colors" href="#">Cookies</a>
+<span class="text-blue-100/50 cursor-default">Privacidad</span>
+<a class="hover:text-white transition-colors" href="https://terque.com/politicas-terminos-y-condiciones/" target="_blank" rel="noopener noreferrer">Términos</a>
+<span class="text-blue-100/50 cursor-default">Cookies</span>
 </div>
 </div>
 </div>
@@ -339,6 +420,33 @@ function toggleFaq(btn) {
     btn.setAttribute('aria-expanded', 'true');
   }
 }
+</script>
+<script>
+(function() {
+  var input = document.getElementById('faq-search');
+  if (!input) return;
+  function filterFaq() {
+    var q = (input.value || '').trim().toLowerCase();
+    document.querySelectorAll('.accordion-item').forEach(function(item) {
+      var questionEl = item.querySelector('.faq-question-text');
+      var content = item.querySelector('.accordion-content');
+      var questionText = (questionEl && questionEl.textContent) ? questionEl.textContent.trim().toLowerCase() : '';
+      var answerText = (content && content.textContent) ? content.textContent.trim().toLowerCase() : '';
+      var match = q === '' || questionText.indexOf(q) !== -1 || answerText.indexOf(q) !== -1;
+      item.classList.toggle('faq-search-hidden', !match);
+    });
+    var totalVisible = 0;
+    document.querySelectorAll('.faq-section').forEach(function(section) {
+      var visible = section.querySelectorAll('.accordion-item:not(.faq-search-hidden)').length;
+      totalVisible += visible;
+      section.classList.toggle('faq-section-empty', visible === 0);
+    });
+    var noResults = document.getElementById('faq-no-results');
+    if (noResults) noResults.classList.toggle('hidden', q === '' || totalVisible > 0);
+  }
+  input.addEventListener('input', filterFaq);
+  input.addEventListener('keyup', filterFaq);
+})();
 </script>
 <a href="https://api.whatsapp.com/send/?phone=573102982363&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 border-2 border-green-500">
 <img alt="WhatsApp" class="w-12 h-12 object-contain" src="images/wsp_logo.png"/>

@@ -48,6 +48,43 @@
         return;
       }
       frame.src = src;
+
+      function normalizeSlash(s) {
+        return (s || '').replace(/\\/g, '/');
+      }
+
+      function syncViewerUrl(relativePath) {
+        if (!relativePath || relativePath.trim() === '') return;
+        try {
+          var u = new URL(window.location.href);
+          u.search = '?src=' + encodeURIComponent(relativePath.trim());
+          window.history.replaceState({}, '', u.toString());
+        } catch (e) {}
+      }
+
+      frame.addEventListener('load', function () {
+        try {
+          var path = frame.contentWindow.location.pathname;
+          if (!path) return;
+          path = normalizeSlash(path);
+          if (path.charAt(0) === '/') path = path.slice(1);
+          var base = normalizeSlash(window.location.pathname);
+          var baseDir = base.lastIndexOf('/') !== -1 ? base.slice(0, base.lastIndexOf('/') + 1) : '/';
+          var baseDirTrim = baseDir.charAt(0) === '/' ? baseDir.slice(1) : baseDir;
+          var relativePath = baseDirTrim.length && path.indexOf(baseDirTrim) === 0
+            ? path.slice(baseDirTrim.length)
+            : path;
+          syncViewerUrl(relativePath);
+        } catch (e) {
+          /* iframe cross-origin o file://: esperar postMessage viewer-sync */
+        }
+      });
+
+      window.addEventListener('message', function (ev) {
+        if (ev.data && ev.data.type === 'viewer-sync' && typeof ev.data.path === 'string') {
+          syncViewerUrl(ev.data.path);
+        }
+      });
     })();
   </script>
 </body>
